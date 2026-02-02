@@ -171,8 +171,7 @@ class ImageSurrogate(ImageImputer):
         device = next(surrogate.parameters()).device
         optimizer = optim.Adam(surrogate.parameters(), lr=lr)
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-            optimizer, factor=lr_factor, patience=lookback // 2, min_lr=min_lr,
-            verbose=verbose)
+            optimizer, factor=lr_factor, patience=lookback // 2, min_lr=min_lr)
         best_loss = validate(self, loss_fn, val_loader).item()
         best_epoch = 0
         best_model = deepcopy(surrogate)
@@ -346,8 +345,7 @@ class ImageSurrogate(ImageImputer):
         device = next(surrogate.parameters()).device
         optimizer = optim.Adam(surrogate.parameters(), lr=lr)
         scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-            optimizer, factor=lr_factor, patience=lookback // 2, min_lr=min_lr,
-            verbose=verbose)
+            optimizer, factor=lr_factor, patience=lookback // 2, min_lr=min_lr)
         best_loss = validate(self, loss_fn, val_loader).item()
         best_epoch = 0
         best_model = deepcopy(surrogate)
